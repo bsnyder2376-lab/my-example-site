@@ -1,0 +1,773 @@
+/* ===== Week 7: Base styles ===== */
+
+header {
+  padding-top: 40px;
+  color: #3c4615;
+  background-image: url(../Images/TheBroadArtWall.JPG);
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.image-banner {
+  position: relative;
+  margin-bottom: 40px;
+  overflow: hidden;
+}
+
+.image-banner img {
+  display: block;
+  transition: all 1.9s;
+}
+
+.image-banner:hover img {
+  transform: scale(1.5);
+}
+
+.banner-description {
+  margin: 3px;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  color: #fff;
+  background-color: rgba(190, 65, 65, 0.65);
+  opacity: 0;
+  transition-property: all;
+  transition-duration: 1s;
+  transform: translateY(100%);
+}
+
+.image-banner:hover .banner-description {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@media screen and (max-width: 767px) {
+  .box-a {
+    margin-bottom: 15px;
+  }
+}
+
+.feature {
+  position: relative;
+  display: inline-block;
+}
+
+
+.feature img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+.badge {
+  position: absolute;
+  left: 10px;
+  bottom: 10px;
+  margin: 0;
+  padding: 8px 12px;
+  background: rgba(196, 35, 35, 0.6);
+  color: #fff;
+}
+
+
+.info-box {
+  background-color: #869960;
+  border: 5px solid #206643;
+  padding: 20px 40px 7px 40px;
+  margin-bottom: 1em;
+
+}
+
+@media screen and (max-width: 767px) {
+  .hide-small {
+    display: none;
+  }
+}
+
+@media screen and (max-width:480px) {
+    .hide-small 
+    {   display: none;}
+}
+
+section {
+  border: 5px solid #c56307;
+  padding: 35px;
+  margin: 16px;
+}
+
+/* ===== Week 9: Typography (2 fonts: body + headings) ===== */
+
+
+/* Custom Fonts */
+
+@font-face {
+  font-family: 'DynaPuff';
+  font-style: normal;
+  font-weight: 400 700;
+  font-stretch: 87.5%;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/dynapuff/v9/z7NKdRvsZDIVHbYPMhZJ3HQ83UaSu4uhyL-zFMLpepw.woff2) format('woff2');
+  unicode-range: U+0460-052F, U+1C80-1C8A, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
+}
+
+.main-area {
+  width: 66%;
+  max-width: 850px; /* limit line length */
+  margin: 0 auto;   /* center the reading column */
+  padding: 24px;
+}
+
+.sidebar {
+	width: 34%;
+	float: left;
+  background-image: -webkit-gradient(
+    linear,
+    left top,
+    left bottom,
+    from(#97112e),
+    to(#fff)
+  );
+  background-image: -webkit-linear-gradient(top, #e5e9dc, #fff);
+  background-image: -moz-linear-gradient(top, #e5e9dc, #fff);
+  background-image: -ms-linear-gradient(top, #e5e9dc, #fff);
+  background-image: -o-linear-gradient(top, #be0f84, #fff);
+  background-image: linear-gradient(to bottom, #e5e9dc, #fff);
+
+	padding: 20px 40px;
+	box-sizing: border-box;
+	font-size: 114%;
+}
+
+@media screen and (max-width: 700px) {
+
+    .main-area,
+    .sidebar {
+        width: auto;
+        float: none;
+    }
+
+    .main-area {
+      padding-right: 0;
+    
+    }
+}
+/* Featured card spans taller on larger screens (desktop) */
+@media screen and (min-width: 850px) {
+  .projects .project.featured {
+    grid-row: span 2;
+    display: grid;
+    align-content: center;
+    font-size: 1.05rem;
+    align-self: auto;
+    
+  }
+}
+
+/* ===== Week 14: Simple animation ===== */
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(6px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+
+/* ===== Week 14: Respect reduced motion preferences ===== */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation: auto,
+    transition; 3s
+  }
+}
+/* ===== Week 14: Project card polish ===== */
+.projects .project {
+  flex: 1 1 200px;
+    min-width: none;
+  border-radius: 13px;
+  box-shadow: 0 2px 13px rgba(3, 35, 56, 0.895);
+  transition: transform 1s ease, box-shadow 1s ease;
+}
+
+.projects .project:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 6px 18px rgba(233, 38, 4, 0.705);
+}
+
+/* ===== Week 14: Nav interaction feedback ===== */
+header nav a {
+  transition: background-color 160ms ease;
+}
+
+header nav a:hover {
+  background-color: rgba(211, 37, 25, 0.753);
+}
+
+header nav a:focus {
+  outline: 3px solid cornflowerblue;
+  outline-offset: 5px;
+}
+
+/* ===== Week 14: Submit button polish ===== */
+button[type="submit"] {
+  border-radius: 13px;
+  padding: 12px 14px;
+  transition: transform 200s ease;
+}
+
+button[type="submit"]:hover {
+  transform: translateY(-2px);
+  outline: #be0f84;
+}
+
+button[type="submit"]:focus {
+  outline: 1px solid rgb(192, 34, 113);
+  outline-offset: 5px;
+}
+
+/* ===== Week 14: Projects Grid (lecture pattern) ===== */
+.projects {
+  display: flex;
+  flex-wrap: wrap;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 30px;
+}
+
+
+
+/* ===== Week 13: CSS Grid project layout (replaces flexbox) ===== */
+
+.projects {
+padding: 20px;
+ display: grid;
+ gap: 16px;
+}
+
+
+@media (max-width: 900px) {
+ .projects {
+   grid-template-columns: repeat(2, 1fr);
+ }
+}
+
+
+@media (max-width: 600px) {
+ .projects {
+   grid-template-columns: 1fr;
+ }
+}
+
+/* ===== Week 13: Grid responsive behavior ===== */
+@media (max-width: 900px) {
+ .projects { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 600px) {
+ .projects { grid-template-columns: 1fr; }
+}
+
+
+
+/* ===== Week 12: Responsive breakpoints ===== */
+
+/* Medium screens (900px and below): slightly tighter spacing */
+@media (max-width: 900px) {
+ section { padding: 15px; }
+ header nav a { padding: 15px 16px; }
+}
+
+/* Small screens (600px and below): stack nav + simplify grid */
+@media (max-width: 600px) {
+ header nav li {
+   float: none;
+ }
+
+
+ header nav a {
+   display: block;
+   border-right: none;
+ }
+
+
+ .projects {
+   grid-template-columns: 1fr;
+ }
+
+
+ .projects .project {
+   min-width: 0;
+ }
+}
+
+
+
+.brand-color {
+color: #b65311;
+font-weight: bold;
+}
+
+/* HEADINGS font + fallbacks, make sure you switch your heading fonts with your own selection, fallbacks can stay as-is */
+body {
+color: #022715;
+font-family: Verdana, Geneva, Tahoma, sans-serif;
+margin: 0;
+padding: 0;
+}
+
+
+
+h1, h2, h3 {
+  font-family: "DynaPuff", Arial, Helvetica, sans-serif;
+  color: #45725b;
+}
+
+h1 {
+  color: #927e09;
+  font-size: 2rem;
+  line-height: 1.2;
+  margin: 0 0 0.5rem 0;
+  
+}
+
+h2 {
+  font-size: 1.4rem;
+  line-height: 1.3;
+  margin: 1.25rem 0 0.5rem 0;
+}
+
+p {
+
+  margin: 0 0 1rem 0;
+  line-height: 1.6;
+}
+
+/* Navigation typography */
+
+
+
+
+
+
+.highlight { font-weight: bold; }
+
+
+
+img {
+	max-width: 100%;
+	height: auto;
+}
+
+.container {
+	max-width: auto;
+	margin: 0 auto;
+	padding-left: 40px;
+	padding-right: 40px;
+	box-sizing: border-box;
+
+ 
+}
+
+@media screen and (max-width:480px){
+
+  .container {
+  padding-left: 20px;
+  padding-right: 20px;
+
+}
+
+}
+
+.content-area {
+  padding-bottom: 40px;
+  padding-top: 15px;
+  background-color: #dfdf62;
+  margin: 4px;
+}
+
+
+
+
+
+
+
+.box-b:hover {
+	transform: rotate(360deg);
+}
+
+
+
+
+
+@media screen and (max-width:480px) {
+  .content-area {
+    padding-top: 20px;
+  }
+  
+}
+
+
+header h1 {
+	margin: 0;
+	font-weight: normal;
+	font-size: 165%;
+}
+
+header p {
+	margin: 0;
+}
+
+@media screen and (max-width: 700px){
+  
+  .site-nav li {
+    width: 33.332%;
+    margin: none;
+  }
+
+  .site-nav a {
+    padding: 15px 0;
+    margin-right: 5px;
+    margin-bottom: 5px;
+  }
+}
+
+/* Site Navigation */
+
+.site-nav {
+  max-width: auto;
+	margin-top: 20px;
+	text-align: center;
+  color: #e2a113;
+}
+
+.site-nav ul {
+	margin: 0;
+	padding: 0;
+
+}
+
+.site-nav li {
+	list-style: none;
+	float: left;
+	margin-right: 5px;
+}
+
+.site-nav a {
+	display: block;
+  border-radius: 10px;
+  background-color: #bdcc32;
+	text-decoration: none;
+  padding: 10px 20px;
+  transition-property: all;
+	transition-duration: 2s;
+	
+}
+
+.site-nav li:hover > a,
+.site-nav a:hover {
+	background-color: #5c3b51;
+ 
+}
+
+.box-a {
+  background-color: rgb(61, 61, 25)
+  padding: 20px 20px 0 20px;
+  border: 2px solid #d3dee7;
+  margin-bottom: 30px;
+  box-shadow: 5px 5px 5px rgba(165, 238, 47, 0.534);
+  border-radius: 12px;
+}
+
+@media screen and (max-width: 767px) {
+	.box-a {
+		margin-bottom: 15px;
+	}
+}
+
+.box-b {
+  color: #869960;
+	text-align: center;
+	width: 200px;
+	height: 200px;
+	line-height: 200px;
+  margin-top: 40px;
+	margin-bottom: 40px;
+	border-radius: 50%;
+  background-color: #6b1414;
+	transition: all 2s ease-out;
+}
+
+.box-b:hover {
+	transform: rotate(360deg);
+}
+
+/* Sub Menu */
+.site-nav li ul {
+	position: absolute;
+	left: -9999px;
+	background-color: #e5e9dc;
+	box-shadow: 7px 7px 7px -7px rgba(0, 0, 0, .6);
+	z-index: 9999;
+}
+
+.site-nav li:hover ul {
+	left: auto;
+}
+
+.site-nav li li {
+	float: none;
+	margin-right: 0;
+}
+
+.site-nav li li a:hover {
+	background-color: #869960;
+	color: #FFF;
+}
+
+/* End Site Navigation */
+
+
+/* ===== Week 11: Full-width hero background (image + overlay gradient) ===== */
+.hero {
+  margin-left: calc(50% - 50vw);
+  margin-right: calc(50% - 50vw);
+  padding: 64px 16x;
+  background-image:
+    linear-gradient(rgba(145, 199, 144, 0.788), rgba(224, 175, 14, 0.55)),
+    url("../Images/GlenIvyRockGarden.JPG");
+  background-size: cover;
+  background-position: center;
+  color: #bd4141;
+  border: none;
+ 
+}
+
+.hero-inner {
+  display: grid;
+  grid-template-columns: minmax(auto, 900px);
+  justify-content: center;
+  padding: 20px;
+  line-height: 1.7;
+  animation: fadeInUp 800ms ease-out;
+}
+
+
+
+.hero h2 { 
+  color: #6b1414;
+  margin-top: 0; }
+
+
+
+@media screen and (max-width: 700px){
+
+      .main-area,
+      .sidebar{
+        width: auto;
+        float: none;
+}
+}
+      .main-area {
+        padding-right: 0;
+      }
+
+
+footer {
+ text-align: center;
+ font-size: 85%;
+ color: #7e1717;
+ padding: 20px;
+ background: linear-gradient(180deg, rgba(212, 147, 17, 0.774), rgba(223, 10, 10, 0.08));
+}
+
+
+.group:before,
+.group:after {
+	content: "";
+	display: table;
+}
+
+.group:after {
+	clear: both;
+}
+
+.group {
+	zoom: 1;
+}
+
+
+.fix {
+	clear: both;
+}
+
+
+
+/* Grid */
+.row {
+  margin-right: -20px;
+}
+
+.col {
+  width: 100%;
+  float: left;
+  padding-right: 20px;
+  box-sizing: border-box;
+}
+
+.col-xs-11 {
+  width: 91.662%;
+}
+.col-xs-10 {
+  width: 83.332%;
+}
+.col-xs-9 {
+  width: 75%;
+}
+.col-xs-8 {
+  width: 66.662%;
+}
+.col-xs-7 {
+  width: 58.331%;
+}
+.col-xs-6 {
+  width: 50%;
+}
+.col-xs-5 {
+  width: 41.662%;
+}
+.col-xs-4 {
+  width: 33.332%;
+}
+.col-xs-3 {
+  width: 25%;
+}
+.col-xs-2 {
+  width: 16.662%;
+}
+.col-xs-1 {
+  width: 8.332%;
+}
+
+@media screen and (min-width: 768px) {
+  .row {
+    margin-right: -40px;
+  }
+
+  .col {
+    padding-right: 40px;
+  }
+
+  .col-sm-11 {
+    width: 91.662%;
+  }
+  .col-sm-10 {
+    width: 83.332%;
+  }
+  .col-sm-9 {
+    width: 75%;
+  }
+  .col-sm-8 {
+    width: 66.662%;
+  }
+  .col-sm-7 {
+    width: 58.331%;
+  }
+  .col-sm-6 {
+    width: 50%;
+  }
+  .col-sm-5 {
+    width: 41.662%;
+  }
+  .col-sm-4 {
+    width: 33.332%;
+  }
+  .col-sm-3 {
+    width: 25%;
+  }
+  .col-sm-2 {
+    width: 16.662%;
+  }
+  .col-sm-1 {
+    width: 8.332%;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .col-md-11 {
+    width: 91.662%;
+  }
+  .col-md-10 {
+    width: 83.332%;
+  }
+  .col-md-9 {
+    width: 75%;
+  }
+  .col-md-8 {
+    width: 66.662%;
+  }
+  .col-md-7 {
+    width: 58.331%;
+  }
+  .col-md-6 {
+    width: 50%;
+  }
+  .col-md-5 {
+    width: 41.662%;
+  }
+  .col-md-4 {
+    width: 33.332%;
+  }
+  .col-md-3 {
+    width: 25%;
+  }
+  .col-md-2 {
+    width: 16.662%;
+  }
+  .col-md-1 {
+    width: 8.332%;
+  }
+}
+
+@media screen and (min-width: 1280px) {
+  .col-lg-11 {
+    width: 91.662%;
+  }
+  .col-lg-10 {
+    width: 83.332%;
+  }
+  .col-lg-9 {
+    width: 75%;
+  }
+  .col-lg-8 {
+    width: 66.662%;
+  }
+  .col-lg-7 {
+    width: 58.331%;
+  }
+  .col-lg-6 {
+    width: 50%;
+  }
+  .col-lg-5 {
+    width: 41.662%;
+  }
+  .col-lg-4 {
+    width: 33.332%;
+  }
+  .col-lg-3 {
+    width: 25%;
+  }
+  .col-lg-2 {
+    width: 16.662%;
+  }
+  .col-lg-1 {
+    width: 8.332%;
+  }
+}
+
+@media screen and (max-width: 1023px) {
+  .push-down-sm {
+    margin-bottom: 30px;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .push-down-sm {
+    margin-bottom: 15px;
+  }
+}
