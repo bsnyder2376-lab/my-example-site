@@ -1,7 +1,7 @@
 /* ===== Week 7: Base styles ===== */
 
 header {
-  padding-top: 40px;
+  padding-top: 60px;
   color: #3c4615;
   background-image: url(../Images/TheBroadArtWall.JPG);
   background-position: center;
@@ -319,11 +319,16 @@ margin: 0;
 padding: 0;
 }
 
+.rock-salt-regular {
+  font-family: "Rock Salt", cursive;
+  font-weight: 400;
+  font-style: normal;
+}
 
 
 h1, h2, h3 {
   font-family: "DynaPuff", Arial, Helvetica, sans-serif;
-  color: #45725b;
+  color: #204431;
 }
 
 h1 {
@@ -338,12 +343,24 @@ h2 {
   font-size: 1.4rem;
   line-height: 1.3;
   margin: 1.25rem 0 0.5rem 0;
+  padding: 10px;
 }
 
-p {
 
+h4 {
+  padding: 20px;
+  font-size: x-large;
+  font-family: "Rock Salt", cursive;
+  font-weight: 400;
+  font-style: normal;
+  color: #321a3b;
+}
+p {
+  padding: 15px;
   margin: 0 0 1rem 0;
   line-height: 1.6;
+  font: ;
+  
 }
 
 /* Navigation typography */
@@ -419,6 +436,7 @@ header h1 {
 
 header p {
 	margin: 0;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
 
 @media screen and (max-width: 700px){
@@ -464,6 +482,10 @@ header p {
   padding: 10px 20px;
   transition-property: all;
 	transition-duration: 2s;
+   font-family: "Rock Salt", cursive;
+  font-weight: 400;
+  font-style: normal;
+  color: #5e0909;
 	
 }
 
