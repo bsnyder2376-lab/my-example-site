@@ -172,12 +172,26 @@ section {
 
 /* ===== Week 14: Respect reduced motion preferences ===== */
 @media (prefers-reduced-motion: reduce) {
-  * {
-    animation: auto,
-    transition; 3s
-  }
+*,
+*::before,
+*::after {
+animation: none !important;
+transition: none !important;
+scroll-behavior: auto !important;
 }
+}
+
 /* ===== Week 14: Project card polish ===== */
+
+.projects .project img {
+width: 100%;
+height: auto;
+display: block;
+border-radius: 8px;
+margin-bottom: 12px;
+}
+
+
 .projects .project {
   flex: 1 1 200px;
     min-width: none;
@@ -209,7 +223,7 @@ header nav a:focus {
 button[type="submit"] {
   border-radius: 13px;
   padding: 12px 14px;
-  transition: transform 200s ease;
+  transition: transform 200ms ease;
 }
 
 button[type="submit"]:hover {
@@ -223,36 +237,30 @@ button[type="submit"]:focus {
 }
 
 /* ===== Week 14: Projects Grid (lecture pattern) ===== */
-.projects {
-  display: flex;
-  flex-wrap: wrap;
-  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-  gap: 30px;
-}
-
-
-
-/* ===== Week 13: CSS Grid project layout (replaces flexbox) ===== */
 
 .projects {
+display: grid;
+grid-template-columns: repeat(3, 1fr);
+gap: 16px;
 padding: 20px;
- display: grid;
- gap: 16px;
 }
 
 
 @media (max-width: 900px) {
- .projects {
-   grid-template-columns: repeat(2, 1fr);
- }
+.projects {
+grid-template-columns: repeat(2, 1fr);
+}
 }
 
 
 @media (max-width: 600px) {
- .projects {
-   grid-template-columns: 1fr;
- }
+.projects {
+grid-template-columns: 1fr;
 }
+}
+
+
+
 
 /* ===== Week 13: Grid responsive behavior ===== */
 @media (max-width: 900px) {
